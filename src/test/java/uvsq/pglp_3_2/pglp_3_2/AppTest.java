@@ -1,38 +1,42 @@
 package uvsq.pglp_3_2.pglp_3_2;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+import static org.junit.Assert.*;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+import org.junit.Test;
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+public class AppTest {
+	
+	Employe emp;
+	Vendeur ven;
+	Manager man; 
+	Entreprise ent;
+	@Test
+	public final void test_salaireEmp() {
+		emp = new Employe("Wily",2020);
+	    assertTrue(emp.calculSalaire()==1500);
+	}
+
+	@Test
+	public void testNotNull() {
+		emp = new Employe("kamy",1500);
+		assertNotNull(emp);
+	}
+	
+	
+	@Test
+	public void CalculSalaireVendeurTest() {
+		Vendeur ven= new Vendeur("Raba",2015);
+		ven.setCommission(150.5);
+		double expected=1750.5;
+		assertEquals(expected,ven.calculSalaire(),0);
+	}
+	
+	
+	
+	
+
 }
