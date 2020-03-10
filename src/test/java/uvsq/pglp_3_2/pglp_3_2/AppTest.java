@@ -35,7 +35,12 @@ public class AppTest {
 		assertEquals(expected,ven.calculSalaire(),0);
 	}
 	
-	
+	@Test
+	public final void test_salaire_Man() {
+		man = new Manager("Vald",2015);
+		man.setNbSubalternes(5);
+	    assertTrue(man.calculSalaire()==2100);
+	}
 	
 	
 
