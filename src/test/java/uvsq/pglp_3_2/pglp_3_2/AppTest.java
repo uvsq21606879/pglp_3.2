@@ -42,6 +42,24 @@ public class AppTest {
 	    assertTrue(man.calculSalaire()==2100);
 	}
 	
+	@Test
+	public void testCalculSommeSalaires() {
+		Entreprise e=new Entreprise();
+		Employe emp= new Employe("John SMITH",2015);
+		Vendeur ven=new Vendeur("Jean MARTIN",2015);
+		ven.setCommission(100.5);
+		Manager m=new Manager("Joe SMITH",2010);
+		e.addEmploye(emp);
+		e.addEmploye(ven);
+		e.addEmploye(m);
+		
+		double expected;
+		expected=1600+1700.5+1800;
+		
+		assertEquals(expected,e.calculSommeSalaires(),0);
+		
+	}
+	
 	
 
 }
